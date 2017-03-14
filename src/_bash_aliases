@@ -28,17 +28,6 @@ alias rmdarcsbup="find . -iname \"*-darcs-backup*\" -exec rm -rf {} \;"
 alias rmtailingws="sed \"s/^\s*//;s/\s*$//\" -i "
 alias mvndirs="mkdir -p src/main/java && mkdir -p src/main/resources && mkdir -p src/test/java && mkdir -p src/test/resources"
 
-# svn helpers
-# Bash documentation recommends to use functions instead of aliases.
-svn() {
-    if [[ $@ == "clean" ]]; then
-        # http://stackoverflow.com/questions/10414533/how-to-remove-untracked-files-in-svn
-        command svn st | grep '^?' | awk '{print $2}' | xargs rm -rfv
-    else
-        command svn "$@"
-    fi
-}
-
 if [ -f "${HOME}/.local_aliases" ] ; then
 	. "${HOME}/.local_aliases"
 fi
