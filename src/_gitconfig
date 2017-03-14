@@ -53,6 +53,13 @@
     --regexp-ignore-case \
     --committer $(git iam)
 
+  # A funny git log output using short commits
+  lol = log \	
+	--pretty=oneline \
+	--abbrev-commit \
+	--graph \
+	--decorate \
+	--all  
   # A nice git log with branches shown as railroads.
   tree = log \
     --oneline \
@@ -119,13 +126,3 @@
   # Grep grouped by files with lines.
   # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
   g = grep --break --heading --line-number
-  
-  stash-svn-rebase = ! sh -c 'git stash && git svn rebase && git stash pop'
-  stash-svn-dcommit = ! sh -c 'git stash && git svn dcommit && git stash pop'
- 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
