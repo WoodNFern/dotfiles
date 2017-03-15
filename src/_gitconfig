@@ -11,7 +11,7 @@
   default = matching
 
 [core]
-  editor   = nano
+  editor   = vim
   autocrlf = input
   excludesfile = ~/.gitignore_global
   packedGitWindowSize = 16m
@@ -19,12 +19,9 @@
   commentchar = %
   
 [merge]
-#  tool = opendiff
   tool = meld
   conflictstyle = diff3
 
-[credential]
-  helper = cache --timeout=3600
 [branch]
   autosetuprebase = always
 [pack]
@@ -54,7 +51,7 @@
     --committer $(git iam)
 
   # A funny git log output using short commits
-  lol = log \	
+  lol = ! git log \
 	--pretty=oneline \
 	--abbrev-commit \
 	--graph \

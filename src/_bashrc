@@ -1,9 +1,30 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# To the extent possible under law, the author(s) have dedicated all 
+# copyright and related and neighboring rights to this software to the 
+# public domain worldwide. This software is distributed without any warranty. 
+# You should have received a copy of the CC0 Public Domain Dedication along 
+# with this software. 
+# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>. 
+
+# base-files version 4.2-4
+
+# ~/.bashrc: executed by bash(1) for interactive shells.
+
+# The latest version as installed by the Cygwin Setup program can
+# always be found at /etc/defaults/etc/skel/.bashrc
+
+# Modifying /etc/skel/.bashrc directly will prevent
+# setup from updating it.
+
+# The copy in your home directory (~/.bashrc) is yours, please
+# feel free to customise it to create a shell
+# environment to your liking.  If you feel a change
+# would be benifitial to all, please feel free to send
+# a patch to the cygwin mailing list.
+
+# User dependent .bashrc file
 
 # If not running interactively, don't do anything
-[ -z "${PS1}" ] && return
+[[ "$-" != *i* ]] && return
 
 if [ -f "${HOME}/.bash_functions" ]; then
   . "${HOME}/.bash_functions"
@@ -55,25 +76,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ -f "${HOME}/.git-prompt" ] ; then
-    GIT_PS1_SHOWCOLORHINTS="true"
-    GIT_PS1_SHOWDIRTYSTATE="true"
-    GIT_PS1_SHOWSTASHSTATE="true"
-    GIT_PS1_SHOWUNTRACKEDFILES="true"
-    GIT_PS1_SHOWUPSTREAM="auto"
-    source "${HOME}/.git-prompt"
-else
-    __git_ps1=""
-fi
-
-if [ "${color_prompt}" = yes ] ; then
-	PS1='\u@\h \w \[\033[90m\]$(__git_ps1)\[\033[37m\]$\[\033[00m\] '
-else
-	PS1='\u@\h \w $(__git_ps1) '
-fi
-
-export PS1
-
 unset color_prompt force_color_prompt
 
 if [ -f "${HOME}/.bash_aliases" ] ; then
@@ -99,21 +101,6 @@ if [ -f "${HOME}/.config/git-completion.bash" ] ; then
   source "${HOME}/.config/git-completion.bash"
 fi
 
-# for `ls` (GNU coreutils, homebrew)
-# port install coreutils +with_default_names
-if [ "$TERM" != "dumb" ] ; then
-  # FIXIT: Which is the right name and determine BSD/MACOS or LINUX
-  #export LSCOLORS=gxfxcxdxbxegedabagacad
-  #export LS_COLORS='no=00:fi=00:di=01;35:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.flac=01;35:*.mp3=01;35:*.mpc=01;35:*.ogg=01;35:*.wav=01;35:';
-  export GREP_OPTIONS='--color=auto'
-
-  #if which dircolors >/dev/null; then
-    # core utils installed
-    #export LS_OPTIONS='--color=auto --file-type'
-    #eval `dircolors "$HOME/.dir_colors"`
-  #fi
-fi
-
 # Set CONCURRENCY_LEVEL to number of CPUs
 if [ -f /proc/cpuinfo ]; then
   # linux style
@@ -133,9 +120,6 @@ export CONCURRENCY_LEVEL
 if [ -f "${HOME}/.bash_local" ]; then
 	source "${HOME}/.bash_local"
 fi
-
-# In case, we've changed the directory, switch back to home dir
-cd
 
 #if [ "$SHLVL" -lt 2 ]; then
 #	echo "Hit Ctrl+C to not raise screen now!"
@@ -157,14 +141,6 @@ if [ "$SHLVL" -gt 4 ]; then
 	}
 
   echo -n -e "\033k`hostname`\033\\"
-fi
-
-export _PATH=$PATH # Workaround for screen on mac os
-
-if ommand -v brew >/dev/null 2>&1; then
-    if [ -f `brew --prefix`/Library/Contributions/brew_bash_completion.sh ]; then
-      source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-    fi
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
