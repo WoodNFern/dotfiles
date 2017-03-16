@@ -8,7 +8,7 @@ RightClickAction=Paste
 MiddleClickAction=Void
 
 Red=255,0,0
-Green=133,153,0
+Green=0,255,0
 BoldGreen=88,110,117
 
 BoldAsFont=no
