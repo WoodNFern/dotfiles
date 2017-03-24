@@ -35,8 +35,8 @@
 [rerere]
   enabled = true
 [user]
-  name = Sven Strittmatter
-  email = sven.strittmatter@iteratec.de
+  name = <GIT_USERNAME>
+  email = <GIT_EMAIL>
 [alias]
   # SVN like shortcuts.
   ci = commit
