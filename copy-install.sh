@@ -36,4 +36,15 @@ do
   copyFile "${file}" "${HOME}"
 done
 
+## Add personal Git credentials to .gitconfig
+gitconf="${HOME}/.gitconfig"
+echo	
+echo "Please enter your username for Git:"
+read GIT_USER
+sed -i "s/<GIT_USERNAME>/${GIT_USER}/g" ${gitconf}
+echo	
+echo "Please enter your email for Git:"
+read GIT_EMAIL
+sed -i "s/<GIT_EMAIL>/${GIT_EMAIL}/g" ${gitconf}
+echo
 echo "Finished :)"
