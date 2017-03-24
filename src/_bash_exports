@@ -1,5 +1,5 @@
 # Extend the PATH
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
+PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
 
 # GNU core utils
 if [ -d "/opt/local/libexec/gnubin" ] ; then
