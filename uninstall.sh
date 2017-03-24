@@ -18,6 +18,14 @@ function unlinkFile {
     target="${2}/${targetFile}"
 
     rm -v "${target}"
+	
+	# Only restore backup if target is a backup file
+    if [ -f "${target}.bak" ]; then
+        if [ ! -L "${target}.bak" ]; then
+            echo "Restoring backing up ${target}.bak"
+            mv -v "${target}.bak" "${target}"
+        fi
+    fi
 }
 
 for file in ${sourceDir}
