@@ -52,10 +52,12 @@
 
   # A funny git log output using short commits
   lol = ! git log \
-	--pretty=oneline \
-	--abbrev-commit \
+	--oneline \
 	--graph \
 	--decorate \
+	--abbrev-commit \
+	--date=relative\
+	--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
 	--all  
   # A nice git log with branches shown as railroads.
   tree = log \
