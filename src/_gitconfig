@@ -58,7 +58,8 @@
 	--abbrev-commit \
 	--date=relative\
 	--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
-	--all  
+	--all \
+	--max-count=60
   # A nice git log with branches shown as railroads.
   tree = log \
     --oneline \
