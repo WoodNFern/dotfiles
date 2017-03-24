@@ -37,5 +37,5 @@ This works for the .config directory, too. Just create a directory named '_confi
 and add files or directories in this directory. Everything inside _config will be 
 symlinked to .config.
 
-Thanks to [Weltraumschaf](https://github.com/Weltraumschaf) and everyone else, who 
-helped in building the basis of this project!
+Thanks to [sontek](https://github.com/sontek), [Weltraumschaf](https://github.com/Weltraumschaf) 
+and [saz](https://github.com/saz) for building the basis of this project!
