@@ -1,32 +1,60 @@
-# Path to your oh-my-zsh configuration.
-ZSH="${HOME}/.oh-my-zsh"
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="sunrise"
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/matze/.oh-my-zsh
 
-# Set to this to use case-sensitive completion
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+DEFAULT_USER="matze"
+
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
+# Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby gem node npm nyan phing svn mvn rake sublime brew encode64 urltools)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
 
 # dont nerv me!
 set bell-style none
@@ -61,31 +89,20 @@ if [ -f "${HOME}/.local_aliases" ] ; then
   source "${HOME}/.local_aliases"
 fi
 
-if [ -f "${HOME}/.config/git-completion.zsh" ] ; then
-  source "${HOME}/.config/git-completion.zsh"
-fi
+# The following lines were added by compinstall
 
-# Source additional information, which applies to the current host only
-if [ -f "${HOME}/.bash_local" ]; then
-    source "${HOME}/.bash_local"
-fi
+zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'l:|=* r:|=*'
+zstyle :compinstall filename '/home/matze/.zshrc'
 
-if command -v brew >/dev/null 2>&1; then
-    if [ -f `brew --prefix`/Library/Contributions/brew_zsh_completion.sh ]; then
-      source `brew --prefix`/Library/Contributions/brew_zsh_completion.sh
-    fi
-fi
-
-if [ -f "${HOME}/.git-prompt" ] ; then
-    source "${HOME}/.git-prompt"
-else
-    __git_ps1="foo"
-fi
-
-PS1='%n@%m %c $(__git_ps1) '
-
-export PS1
-#fpath=(~/.zsh/completion $fpath)
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "${HOME}/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "${HOME}/.gvm/bin/gvm-init.sh"
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch
+unsetopt beep notify
+bindkey -e
+# End of lines configured by zsh-newuser-install
