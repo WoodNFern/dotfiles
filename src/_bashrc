@@ -40,6 +40,9 @@ HISTCONTROL=ignoredups:ignorespace
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# automatically change directory when directly entering a path (without 'cd')
+shopt -s autocd
+
 # Save history immediatly after running command
 # With "history -n" it's possible to read all new lines since last read
 PROMPT_COMMAND="history -a"
