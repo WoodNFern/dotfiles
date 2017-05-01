@@ -23,6 +23,9 @@
 
 # User dependent .bashrc file
 
+#Sudo alias printing an ASCII image of 'Groot' (Guardians of the Galaxy)
+alias groot='cat ./.config/groot.txt && sudo '
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
