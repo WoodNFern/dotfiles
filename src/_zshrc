@@ -66,6 +66,10 @@ if [ -f "${HOME}/.bash_exports" ] ; then
   source "${HOME}/.bash_exports"
 fi
 
+if [ -f "${HOME}/.bashrc" ] ; then
+  source "${HOME}/.bashrc"
+fi
+
 # dont nerv me!
 set bell-style none
 
