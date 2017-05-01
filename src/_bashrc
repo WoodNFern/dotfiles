@@ -40,19 +40,9 @@ set bell-style none
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
 
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# automatically change directory when directly entering a path (without 'cd')
-shopt -s autocd
-
 # Save history immediatly after running command
 # With "history -n" it's possible to read all new lines since last read
 PROMPT_COMMAND="history -a"
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
 
 if [ -f "${HOME}/.bash_exports" ] ; then
   source "${HOME}/.bash_exports"
@@ -94,17 +84,6 @@ fi
 
 if [ -f "${HOME}/.local_aliases" ] ; then
   source "${HOME}/.local_aliases"
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f "/etc/bash_completion" ] && ! shopt -oq posix ; then
-  source "/etc/bash_completion"
-fi
-
-if [ -f "${HOME}/.config/git-completion.bash" ] ; then
-  source "${HOME}/.config/git-completion.bash"
 fi
 
 # Set CONCURRENCY_LEVEL to number of CPUs
