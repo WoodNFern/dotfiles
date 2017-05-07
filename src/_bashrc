@@ -128,5 +128,9 @@ if [ "$SHLVL" -gt 4 ]; then
   echo -n -e "\033k`hostname`\033\\"
 fi
 
+
+#Print a cow saying smart things
+fortune | cowthink -n
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "${HOME}/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "${HOME}/.gvm/bin/gvm-init.sh"
