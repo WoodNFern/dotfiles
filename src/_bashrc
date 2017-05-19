@@ -26,6 +26,9 @@
 #Sudo alias printing an ASCII image of 'Groot' (Guardians of the Galaxy)
 alias groot='sudo cat ~/.config/groot.txt && sudo '
 
+#Declare env var for android studio root directory
+export ANDROID_HOME=/opt/android-sdk
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
