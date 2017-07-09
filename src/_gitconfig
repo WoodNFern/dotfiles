@@ -124,6 +124,10 @@
         sort -nr | \
         head -10'
 
+  # Updates your repo by rebasing, shows a log of the updated stuff and pushes your changes
+  # (Especially useful for hackathons)
+  pp = ! sh -c 'git up && git push'
+
   # Grep grouped by files with lines.
   # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
   g = grep --break --heading --line-number
