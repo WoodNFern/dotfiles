@@ -78,6 +78,8 @@
     --abbrev-commit \
     --date=relative \
     --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  # Unstage any files that have been added to the staging area
+  unstage = reset HEAD
 
   # Shows a list of tags. Annotated tags have an * before the name.
   listtags = ! git for-each-ref \
