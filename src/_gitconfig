@@ -128,6 +128,9 @@
   # (Especially useful for hackathons)
   pp = ! sh -c 'git up && git push'
 
+  # Shows a diff for all staged files
+  diffc = diff --cached
+
   # Grep grouped by files with lines.
   # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
   g = grep --break --heading --line-number
