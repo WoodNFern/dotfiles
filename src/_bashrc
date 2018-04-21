@@ -129,8 +129,15 @@ if [ "$SHLVL" -gt 4 ]; then
 fi
 
 
-#Print a cow saying smart things
-fortune | cowthink -n
+#Print a cow saying smart things (if commands are installed)
+command -v fortune > /dev/null
+FORTUNE_AVAILABLE=$?
+command -v cowsay > /dev/null
+COWSAY_AVAILABLE=$?
+
+if [ "${FORTUNE_AVAILABLE}" -eq 0 ] && [ "${COWSAY_AVAILABLE}" -eq 0 ]; then
+    fortune | cowthink -n
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "${HOME}/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "${HOME}/.gvm/bin/gvm-init.sh"
