@@ -10,6 +10,13 @@
 ZSH_THEME="agnoster"
 DEFAULT_USER="matze"
 
+# Activate powerline, if installed
+POWERLINE_SCRIPT="/usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh"
+if [ -f "${POWERLINE_SCRIPT}" ] && command -v powerline-daemon &>/dev/null ; then
+    powerline-daemon -q
+    . "${POWERLINE_SCRIPT}"
+fi
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
