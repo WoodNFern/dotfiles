@@ -14,14 +14,29 @@ if [ "$(uname -s | cut -c 1-6)" = "CYGWIN" ] ; then
     alias clear='printf "\033c"'
 fi
 
+
+
 # some more ls aliases
 alias l='ls $LS_OPTIONS -lAhF'
-alias ll='ls $LS_OPTIONS -lhF'
-alias ls='ls $LS_OPTIONS -hF'
+
+# Use 'exa' for 'ls' aliases if possible
+if command -v exa &>/dev/null ; then
+    alias ls='exa -1'
+    alias ll='exa -lh'
+    alias la='exa -lah'
+    alias lg='exa -lah --git --git-ignore'
+else
+    alias ll='ls $LS_OPTIONS -lhF'
+    alias ls='ls $LS_OPTIONS -hF'
+fi
+
+
 
 alias du='du -h'
 alias df='df -h'
 alias ..='cd ..'
+
+
 
 alias finddarcsbup="find . -iname \"*-darcs-backup*\""
 alias rmdarcsbup="find . -iname \"*-darcs-backup*\" -exec rm -rf {} \;"
