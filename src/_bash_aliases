@@ -36,6 +36,11 @@ alias du='du -h'
 alias df='df -h'
 alias ..='cd ..'
 
+# Use graphical 'du' alternative 'ncdu'
+if command -v ncdu &>/dev/null ; then
+    alias du=ncdu
+fi
+
 
 
 alias finddarcsbup="find . -iname \"*-darcs-backup*\""
