@@ -48,6 +48,9 @@
   # Shows the email address used for commits.
   iam = !git config --get user.email
 
+  # List all files ignored by .gitignore
+  ignored = ls-files --other --ignored --exclude-standard
+
   # Shows a short log about what you did suince one day ago.
   daily = ! git log --all \
     --oneline \
