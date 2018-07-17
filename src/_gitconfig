@@ -11,7 +11,8 @@
   default = matching
 [pull]
 	rebase = true
-
+[rebase]
+	autoStash = true
 [core]
   editor   = vim
   autocrlf = input
