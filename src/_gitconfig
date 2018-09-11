@@ -46,6 +46,9 @@
   # Expect commit message on console per default
   cim = commit -m
 
+  # Ammend a commit
+  cia = commit --amend
+
   # Shows the email address used for commits.
   iam = !git config --get user.email
 
