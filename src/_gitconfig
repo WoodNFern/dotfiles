@@ -54,7 +54,7 @@
 
   # List releases with first line of message
   ls-release = tag -l 'v*' -n1
-  lsr = ls-release
+  lsr = tag -l 'v*' -n1
 
   # List all files ignored by .gitignore
   ignored = ls-files --other --ignored --exclude-standard
