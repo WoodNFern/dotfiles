@@ -52,6 +52,10 @@
   # Shows the email address used for commits.
   iam = !git config --get user.email
 
+  # List releases with first line of message
+  ls-release = tag -l 'v*' -n1
+  lsr = ls-release
+
   # List all files ignored by .gitignore
   ignored = ls-files --other --ignored --exclude-standard
 
