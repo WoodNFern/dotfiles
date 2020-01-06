@@ -33,27 +33,12 @@ if [ -f "${HOME}/.bash_functions" ]; then
   . "${HOME}/.bash_functions"
 fi
 
-# dont nerv me!
-set bell-style none
-
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
-
 # Save history immediatly after running command
 # With "history -n" it's possible to read all new lines since last read
 PROMPT_COMMAND="history -a"
 
 if [ -f "${HOME}/.bash_exports" ] ; then
   source "${HOME}/.bash_exports"
-fi
-
-if [ -f "${HOME}/.config/golang" ] ; then
-  source "${HOME}/.config/golang"
-fi
-
-if [ -f "$HOME/.config/perl" ] ; then
-  source "$HOME/.config/perl"
 fi
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -79,7 +64,7 @@ if [ -f "${HOME}/.bash_aliases" ] ; then
 fi
 
 if [ -f "${HOME}/.ssh_aliases" ] ; then
- 	source "${HOME}/.ssh_aliases"
+  source "${HOME}/.ssh_aliases"
 fi
 
 if [ -f "${HOME}/.local_aliases" ] ; then
@@ -90,11 +75,6 @@ fi
 if [ -f /proc/cpuinfo ]; then
   # linux style
   CONCURRENCY_LEVEL=`grep -c processor /proc/cpuinfo`
-elif [ -x "`which system_profiler`" ]; then
-  # mac os style
-  CONCURRENCY_LEVEL=`system_profiler SPHardwareDataType 2> /dev/null \
-    | grep --color=never -i "total number of cores" \
-    | sed 's/[^0-9]*//g'`
 else
   CONCURRENCY_LEVEL=1
 fi
@@ -106,27 +86,6 @@ if [ -f "${HOME}/.bash_local" ]; then
 	source "${HOME}/.bash_local"
 fi
 
-#if [ "$SHLVL" -lt 2 ]; then
-#	echo "Hit Ctrl+C to not raise screen now!"
-#	sleep 1
-#	screen -D -r
-#else
-if [ "$SHLVL" -gt 4 ]; then
-	function ssh() {
-		hname=${1##*@}
-		echo -n -e "\033k$hname\033\\"
-		$(which ssh) $@
-		echo -n -e "\033k`hostname`\033\\"
-	}
-
-	function telnet() {
-		echo -n -e "\033k$1\033\\"
-		$(which telnet) $@
-		echo -n -e "\033k`hostname`\033\\"
-	}
-
-  echo -n -e "\033k`hostname`\033\\"
-fi
 
 
 #Print a cow saying smart things (if commands are installed)
@@ -138,6 +97,3 @@ COWSAY_AVAILABLE=$?
 if [ "${FORTUNE_AVAILABLE}" -eq 0 ] && [ "${COWSAY_AVAILABLE}" -eq 0 ]; then
     fortune | cowthink -n
 fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "${HOME}/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "${HOME}/.gvm/bin/gvm-init.sh"

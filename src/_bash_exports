@@ -1,62 +1,17 @@
+# Gradle
 if [ -d "/opt/gradle/latest" ] ; then
     export GRADLE_HOME="/opt/gradle/latest"
 fi
 
+if [ -d "${GRADLE_HOME}/bin" ] ; then
+    PATH="${PATH}:${GRADLE_HOME}/bin"
+fi
+
+
+
+# Android SDK
 if [ -d "/opt/android-sdk" ] ; then
     export ANDROID_HOME="/opt/android-sdk"
-fi
-
-# Extend the PATH
-PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
-
-# GNU core utils
-if [ -d "/opt/local/libexec/gnubin" ] ; then
-  PATH="/opt/local/libexec/gnubin:${PATH}"
-fi
-
-# macport stuff
-if [ -d "/opt/local/bin" ] ; then
-  PATH="/opt/local/bin:${PATH}"
-fi
-
-if [ -d "/opt/local/sbin" ] ; then
-  PATH="/opt/local/sbin:${PATH}"
-fi
-
-if [ -d "/opt/local/lib/qt3" ] ; then
-  export QTDIR="/opt/local/lib/qt3"
-fi
-
-if [ -d "/opt/local/share/man" ] ; then
-  export MANPATH="/opt/local/share/man:${MANPATH}"
-fi
-
-# mysql binaries
-if [ -d "/usr/local/mysql/bin" ] ; then
-  PATH="/usr/local/mysql/bin:${PATH}"
-fi
-
-# Haskell Plattform
-if [ -d "${HOME}/Library/Haskell/bin" ] ; then
-  PATH="${HOME}/Library/Haskell/bin:${PATH}"
-fi
-
-# cabal installation
-if [ -d "${HOME}/.cabal/bin" ] ; then
-  PATH="${HOME}/.cabal/bin:${PATH}"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/bin" ] ; then
-  PATH="${HOME}/bin:${PATH}"
-fi
-
-if [ -d "$HOME/Library/Haskell/bin" ] ; then
-    PATH="$HOME/Library/Haskell/bin:$PATH"
-fi
-
-if [ -d "$HOME/.rvm/bin" ] ; then
-    PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 fi
 
 if [ -d "${ANDROID_HOME}/tools/bin" ] ; then
@@ -67,9 +22,19 @@ if [ -d "${ANDROID_HOME}/platform-tools/" ] ; then
     PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 fi
 
-if [ -d "${GRADLE_HOME}/bin" ] ; then
-    PATH="${PATH}:${GRADLE_HOME}/bin"
+
+# Rust's Cargo binaries
+if [ -d "${HOME}/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+# Set JAVA_HOME for Arch Linux
+if [ -d "/usr/lib/jvm/default" ] ; then
+    export JAVA_HOME="/usr/lib/jvm/default"
+fi
+
+# Extend the PATH
+PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/X11/bin
 
 export PATH
 
@@ -80,20 +45,12 @@ else
     export TERM='xterm-color'
 fi
 
-if [ -d "${HOME}/Applications/UMLet" ] ; then
-    export UMLET_HOME="${HOME}/Applications/UMLet"
-fi
-
-if [ -d /usr/share/ant/ ] ; then
-    export ANT_HOME="/usr/share/ant"
-fi
-
 # Maven
 export MAVEN_OPTS="-Xmx1024m"
 export M2="${HOME}/.m2"
 export M2_REPO="${M2}/repository"
 
-# Make nano the default editor
+# Make vim the default editor
 export EDITOR="vim"
 
 # Don’t clear the screen after quitting a manual page
@@ -112,7 +69,7 @@ export PAGER=less
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoredups:ignorespace
 
 # Make some commands not show up in history
 export HISTIGNORE="cd:cd -:pwd;exit:date:* --help"
@@ -124,21 +81,6 @@ export LANGUAGE=en_US.UTF-8
 # http://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables.html
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-export CLICOLOR=1
-
-# options for darcs
-export DARCS_DONT_ESCAPE_8BIT=1
-export DARCS_DO_COLOR_LINES=1
-export DARCS_ALWAYS_COLOR=1
-
-
-if [ "linux-gnu" = "${OSTYPE}" ]; then
-    # Export some debian stuff
-    DEBEMAIL=$DEBEMAIL_local
-    DEBFULLNAME=$DEBFULLNAME_local
-    export DEBEMAIL DEBFULLNAME
-fi
 
 if [ -f "${HOME}/.local_exports" ] ; then
     source "${HOME}/.local_exports"

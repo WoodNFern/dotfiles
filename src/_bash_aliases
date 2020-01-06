@@ -9,13 +9,6 @@ if [ -x /usr/bin/dircolors ] ; then
     alias egrep='egrep --color=auto'
 fi
 
-# Clear in Cygwin
-if [ "$(uname -s | cut -c 1-6)" = "CYGWIN" ] ; then
-    alias clear='printf "\033c"'
-fi
-
-
-
 # some more ls aliases
 alias l='ls $LS_OPTIONS -lAhF'
 

@@ -19,13 +19,13 @@
 set autoindent
 
 ## Backup files to filename~.
-# set backup
+set backup
 
 ## The directory to put unique backup files in.
 # set backupdir ""
 
 ## Do backwards searches by default.
-# set backwards
+set backwards
 
 ## Use bold text instead of reverse video text.
 set boldtext
@@ -213,40 +213,40 @@ set tabstospaces
 ##
 ## All regexes should be extended regular expressions.
 
-include "~/.nanorc.d/asm.nanorc"
-include "~/.nanorc.d/awk.nanorc"
-include "~/.nanorc.d/c.nanorc"
-include "~/.nanorc.d/cfg.nanorc"
-include "~/.nanorc.d/cmake.nanorc"
-include "~/.nanorc.d/css.nanorc"
-include "~/.nanorc.d/debian.nanorc"
-include "~/.nanorc.d/fortran.nanorc"
-include "~/.nanorc.d/gentoo.nanorc"
-include "~/.nanorc.d/groff.nanorc"
-include "~/.nanorc.d/html.nanorc"
-include "~/.nanorc.d/ini.nanorc"
-include "~/.nanorc.d/java.nanorc"
-include "~/.nanorc.d/javascript.nanorc"
-include "~/.nanorc.d/lua.nanorc"
-include "~/.nanorc.d/makefile.nanorc"
-include "~/.nanorc.d/man.nanorc"
-include "~/.nanorc.d/markdown.nanorc"
-include "~/.nanorc.d/mgp.nanorc"
-include "~/.nanorc.d/mutt.nanorc"
-include "~/.nanorc.d/nanorc.nanorc"
-include "~/.nanorc.d/objc.nanorc"
-include "~/.nanorc.d/ocaml.nanorc"
-include "~/.nanorc.d/patch.nanorc"
-include "~/.nanorc.d/perl.nanorc"
-include "~/.nanorc.d/php.nanorc"
-include "~/.nanorc.d/pov.nanorc"
-include "~/.nanorc.d/python.nanorc"
-include "~/.nanorc.d/ruby.nanorc"
-include "~/.nanorc.d/sh.nanorc"
-include "~/.nanorc.d/spec.nanorc"
-include "~/.nanorc.d/tcl.nanorc"
-include "~/.nanorc.d/tex.nanorc"
-include "~/.nanorc.d/xml.nanorc"
+# include "~/.nanorc.d/asm.nanorc"
+# include "~/.nanorc.d/awk.nanorc"
+# include "~/.nanorc.d/c.nanorc"
+# include "~/.nanorc.d/cfg.nanorc"
+# include "~/.nanorc.d/cmake.nanorc"
+# include "~/.nanorc.d/css.nanorc"
+# include "~/.nanorc.d/debian.nanorc"
+# include "~/.nanorc.d/fortran.nanorc"
+# include "~/.nanorc.d/gentoo.nanorc"
+# include "~/.nanorc.d/groff.nanorc"
+# include "~/.nanorc.d/html.nanorc"
+# include "~/.nanorc.d/ini.nanorc"
+# include "~/.nanorc.d/java.nanorc"
+# include "~/.nanorc.d/javascript.nanorc"
+# include "~/.nanorc.d/lua.nanorc"
+# include "~/.nanorc.d/makefile.nanorc"
+# include "~/.nanorc.d/man.nanorc"
+# include "~/.nanorc.d/markdown.nanorc"
+# include "~/.nanorc.d/mgp.nanorc"
+# include "~/.nanorc.d/mutt.nanorc"
+# include "~/.nanorc.d/nanorc.nanorc"
+# include "~/.nanorc.d/objc.nanorc"
+# include "~/.nanorc.d/ocaml.nanorc"
+# include "~/.nanorc.d/patch.nanorc"
+# include "~/.nanorc.d/perl.nanorc"
+# include "~/.nanorc.d/php.nanorc"
+# include "~/.nanorc.d/pov.nanorc"
+# include "~/.nanorc.d/python.nanorc"
+# include "~/.nanorc.d/ruby.nanorc"
+# include "~/.nanorc.d/sh.nanorc"
+# include "~/.nanorc.d/spec.nanorc"
+# include "~/.nanorc.d/tcl.nanorc"
+# include "~/.nanorc.d/tex.nanorc"
+# include "~/.nanorc.d/xml.nanorc"
 
 ## Settings
 ###########
